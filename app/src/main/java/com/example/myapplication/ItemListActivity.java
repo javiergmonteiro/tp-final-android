@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.example.myapplication.dummy.DummyContent;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -119,6 +121,7 @@ public class ItemListActivity extends AppCompatActivity {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).website_name);
+            holder.mAuthorView.setText(mValues.get(position).author_name);
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -132,11 +135,13 @@ public class ItemListActivity extends AppCompatActivity {
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
             final TextView mContentView;
+            final TextView mAuthorView;
 
             ViewHolder(View view) {
                 super(view);
                 mIdView = (TextView) view.findViewById(R.id.id_text);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mAuthorView = (TextView) view.findViewById(R.id.author);
             }
         }
     }

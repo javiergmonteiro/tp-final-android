@@ -26,9 +26,9 @@ public class DummyContent {
     private static final int COUNT = 25;
 
     static {
-        addItem(new DummyItem("1","Amazon","http://www.amazon.com"));
-        addItem(new DummyItem("2","Google","http://google.com"));
-        addItem(new DummyItem("3","Android","http://www.android.com"));
+        addItem(new DummyItem("1","Amazon","http://www.amazon.com","javier"));
+        addItem(new DummyItem("2","Google","http://google.com", "javier"));
+        addItem(new DummyItem("3","Android","http://www.android.com", "javier"));
     }
 
     private static void addItem(DummyItem item) {
@@ -36,9 +36,9 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
+    //private static DummyItem createDummyItem(int position) {
+    //    return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    //}
 
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
@@ -56,11 +56,13 @@ public class DummyContent {
         public final String id;
         public final String website_name;
         public final String website_url;
+        public final String author_name;
 
-        public DummyItem(String id, String website_name, String website_url) {
+        public DummyItem(String id, String website_name, String website_url, String author_name) {
             this.id = id;
             this.website_name = website_name;
             this.website_url = website_url;
+            this.author_name = author_name;
         }
 
         @Override
